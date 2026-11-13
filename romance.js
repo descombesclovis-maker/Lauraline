@@ -78,8 +78,8 @@ function reaction(correct){
  if(onApple||!video.canPlayType('video/webm; codecs="vp9"')){showFallback();return}
  let failed=false;
  const fallbackOnce=()=>{if(failed||navigationStarted)return;failed=true;showFallback()};
- video.onerror=fallbackOnce;video.loop=!correct;video.playbackRate=1;
- video.onplaying=()=>{video.classList.add("visible");idle.classList.add("hidden")};
+ video.onerror=fallbackOnce;video.loop=!correct;video.defaultPlaybackRate=correct?1:2;video.playbackRate=correct?1:2;
+ video.onplaying=()=>{video.playbackRate=correct?1:2;video.classList.add("visible");idle.classList.add("hidden")};
  video.onended=()=>{if(correct)nextPage()};
  video.src=correct?video.dataset.happy:video.dataset.angry;
  video.load();
