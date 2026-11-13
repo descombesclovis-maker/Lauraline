@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#a76784"><meta name="description" content="La suite de notre petite histoire.">
+<title>Pour toi ♡</title><style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,serif;background:radial-gradient(circle at 50% 65%,#fbe0bb 0%,#e5a59f 32%,#9d638f 68%,#4c325f 100%);display:grid;place-items:center}
+body::before{content:"";position:fixed;inset:55% -10% -20%;background:linear-gradient(0deg,#2f613c,#69945d);border-radius:52% 48% 0 0/29% 27% 0 0;filter:drop-shadow(0 -12px 45px #ffe0aa55)}
+.main{position:relative;z-index:2;text-align:center;animation:appear 1.3s ease both}
+.heart{font-size:clamp(150px,29vw,330px);color:#fff1e3;text-shadow:0 0 55px #fff0eb,0 0 110px #ffbaca;animation:pulse 3.7s ease-in-out infinite;line-height:1}
+@keyframes appear{from{opacity:0;transform:scale(.68)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.petals{position:fixed;inset:0;pointer-events:none}
+.petals span{position:absolute;left:var(--x);top:-12%;width:var(--s);height:calc(var(--s)*.8);border-radius:70% 0 65% 30%;background:linear-gradient(135deg,#ffe0e7,#df719b);opacity:.7;animation:fall var(--t) linear var(--d) infinite}
+@keyframes fall{to{transform:translate(13vw,120vh) rotate(770deg)}}
+@media(prefers-reduced-motion:reduce){.heart,.petals span{animation:none}}
+</style></head><body><div class="petals" id="petals" aria-hidden="true"></div><main class="main" aria-label="La suite de notre histoire"><div class="heart" aria-hidden="true">♡</div></main>
+<script>for(let i=0;i<23;i++){const e=document.createElement("span");e.style.cssText="--x:"+(i*41%103)+"%;--s:"+(12+i%6*5)+"px;--t:"+(5+i%6)+"s;--d:-"+(i*3%11)+"s";document.getElementById("petals").appendChild(e)}</script>
+</body></html>

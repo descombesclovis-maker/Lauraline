@@ -1,0 +1,90 @@
+/* Lauraline — prairie romantique, sans altérer les médias du doudou */
+:root{--sunset-cream:#fff2d1;--rose:#ffa4bb;--berry:#763754}
+html,body{overflow:hidden;background:#492b53}
+body{min-height:100dvh}
+.scene,.scene.happy{
+  min-height:100dvh;height:100dvh;overflow:hidden;
+  background:linear-gradient(180deg,#492b63 0%,#b16b8b 37%,#f6b48b 64%,#ecbc85 73%,#497447 100%);
+  transition:background .7s ease
+}
+.scene::before{opacity:.12}
+.horizon,.floor,.floor-glow{display:none}
+.world-art{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.world-art>svg{width:100%;height:100%;display:block;filter:saturate(1.13)}
+.world-art .cloud-a{animation:cloudFloat 30s ease-in-out infinite alternate}
+.world-art .cloud-b{animation:cloudFloat 38s ease-in-out infinite alternate-reverse}
+@keyframes cloudFloat{from{transform:translateX(-24px)}to{transform:translateX(36px)}}
+.world-haze{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 60% 28% at 69% 61%,#ffe3a657,transparent 84%),linear-gradient(180deg,#41204e18 0%,transparent 51%,#162a1633 100%)}
+.meadow-flowers{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.wildflower{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);transform-origin:50% 100%;animation:flowerSway var(--time) ease-in-out var(--phase) infinite alternate;opacity:var(--o)}
+.wildflower::before{content:"";position:absolute;left:50%;top:32%;height:80%;width:2px;border-radius:2px;background:linear-gradient(#628e48,#274c2e);transform:rotate(var(--lean));transform-origin:top}
+.wildflower svg{position:relative;display:block;width:100%;height:80%;filter:drop-shadow(0 1px 1px #233d2b77)}
+@keyframes flowerSway{from{transform:rotate(-4deg) translateY(1px)}to{transform:rotate(5deg) translateY(-2px)}}
+.grass-near{position:absolute;inset:auto 0 0;height:10%;z-index:6;pointer-events:none;opacity:.72;background:repeating-linear-gradient(103deg,transparent 0 7px,#204c3375 8px 10px,transparent 13px 22px),linear-gradient(0deg,#284d33bd,transparent 95%);clip-path:polygon(0 37%,4% 20%,8% 50%,12% 31%,17% 54%,23% 24%,29% 49%,37% 20%,46% 52%,55% 27%,62% 51%,71% 20%,78% 43%,86% 26%,93% 52%,100% 25%,100% 100%,0 100%)}
+.prompt-title{position:absolute;z-index:7;top:clamp(94px,15.4vh,188px);left:50%;width:min(95vw,1000px);transform:translateX(-50%);text-align:center;overflow:visible;pointer-events:none}
+.prompt-title span{display:block;font-family:"Palatino Linotype","Book Antiqua",Georgia,serif;font-weight:800;font-style:italic;font-size:clamp(28px,5.3vw,70px);letter-spacing:-.038em;line-height:1.15;padding:.16em .03em .25em;color:#fff3e2;background:linear-gradient(105deg,#ffe8a0 0%,#fff4de 14%,#ff9cbb 36%,#e6b6ff 53%,#b4e4f3 70%,#ffe8a0 90%,#ffa6c0 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 3px 2px #54224b9c) drop-shadow(0 0 22px #fff5c387);clip-path:inset(0 100% 0 0);animation:revealLine 2.05s cubic-bezier(.22,.85,.32,1) 2.35s both,titleShine 8s linear 4.4s infinite}
+.prompt-title::after{content:"";position:absolute;left:8%;right:8%;bottom:-7px;height:2px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,transparent,#ffd7a5,#ffa7d8,transparent);box-shadow:0 0 14px #ffe6ca99;animation:underlineDraw 1.1s ease 4s both}
+@keyframes revealLine{from{clip-path:inset(0 100% 0 0);opacity:0}to{clip-path:inset(0 0 0 0);opacity:1}}
+@keyframes titleShine{from{background-position:100% 50%}to{background-position:-100% 50%}}
+@keyframes underlineDraw{to{transform:scaleX(1)}}
+.objects{position:absolute;z-index:5;bottom:clamp(42px,9vh,90px);left:50%;transform:translateX(-50%);display:flex;flex-direction:row-reverse;align-items:flex-end;justify-content:center;width:max-content;max-width:100vw;gap:0;padding:0;filter:drop-shadow(0 21px 17px #1f291d55)}
+.digicode-wrap{z-index:4;perspective:1200px}
+.digicode{width:clamp(245px,26vw,326px);transform:rotateY(-5deg) rotateZ(1.5deg);border-color:#ffdfd5bb;background:linear-gradient(145deg,#ffffff20,transparent 26%),linear-gradient(158deg,#a56787 0%,#65496f 20%,#453553 69%,#775268 100%);box-shadow:inset 2px 3px 2px #ffffff44,inset -6px -8px 19px #261d3888,0 28px 48px #1e17294f,0 0 35px #ffdebd2f}
+.digicode::after{border-color:#fff1db44}
+.digicode.error{animation:meadowShake .4s both}
+@keyframes meadowShake{0%,100%{transform:translateX(0) rotateY(-5deg) rotateZ(1.5deg)}22%{transform:translateX(-10px) rotateY(-5deg)}47%{transform:translateX(8px) rotateY(-5deg)}73%{transform:translateX(-6px) rotateY(-5deg)}}
+.actor-wrap{z-index:5;width:clamp(200px,29vw,350px);height:auto;aspect-ratio:716/694;margin:0 -29px 0 0;transform-origin:65% 95%;will-change:transform}
+.actor-wrap:not(.reacting){animation:curiousDoudou 6.8s ease-in-out infinite}
+.actor-wrap.reacting{animation:none;transform:none}
+.actor-wrap::before{background:#1f2a1e8c;filter:blur(16px)}
+.actor{object-fit:contain;width:100%;height:100%;image-rendering:auto;backface-visibility:hidden}
+.actor-still{transition:opacity .15s ease}
+.actor-video,.actor-fallback{transition:opacity .15s ease;transform:translateZ(0)}
+.actor-video.visible,.actor-fallback.visible{will-change:opacity}
+@keyframes curiousDoudou{
+  0%,100%{transform:translate3d(0,0,0) rotate(-1.8deg) rotateY(-5deg)}
+  17%{transform:translate3d(3px,-6px,0) rotate(1.8deg) rotateY(7deg)}
+  36%{transform:translate3d(-2px,-1px,0) rotate(-.5deg) rotateY(-4deg)}
+  57%{transform:translate3d(2px,-5px,0) rotate(3deg) rotateY(9deg)}
+  76%{transform:translate3d(-3px,0,0) rotate(-2.5deg) rotateY(-7deg)}
+}
+.intro{position:absolute;inset:0;z-index:40;overflow:hidden;pointer-events:none;animation:leaveIntro 3.4s ease-in both}
+.intro-shade{position:absolute;inset:0;background:radial-gradient(circle at center,#f8b3b6 0%,#b64d79 22%,#613459 55%,#321e49 100%);animation:introGlow 3.2s ease both}
+.intro-rose{position:absolute;left:50%;top:50%;width:var(--size);height:var(--size);transform-origin:center;filter:drop-shadow(0 5px 5px #60274c88);opacity:0;will-change:transform,opacity;animation:roseBurst 2.4s cubic-bezier(.17,.78,.3,1) var(--delay) both}
+.intro-rose svg{width:100%;height:100%;overflow:visible}
+.intro-center{position:absolute;left:50%;top:50%;width:13vmin;height:13vmin;max-width:160px;max-height:160px;border-radius:50%;transform:translate(-50%,-50%);background:#ffd5bbdd;box-shadow:0 0 100px 80px #ffcfaf7f,0 0 220px 130px #ff8ead66;animation:heartGlow 2.6s ease both}
+@keyframes heartGlow{0%{opacity:.4;transform:translate(-50%,-50%) scale(.1)}55%{opacity:1;transform:translate(-50%,-50%) scale(1.8)}100%{opacity:0;transform:translate(-50%,-50%) scale(5)}}
+@keyframes roseBurst{0%{opacity:0;transform:translate(-50%,-50%) scale(.04) rotate(-65deg)}15%{opacity:1}72%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(var(--zoom)) rotate(var(--turn))}}
+@keyframes introGlow{0%{opacity:1}60%{opacity:.94}100%{opacity:0}}
+@keyframes leaveIntro{0%,64%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}100%{opacity:0;visibility:hidden}}
+.screen-wipe{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 58%,#ffead4 0%,#ffb8ce 30%,#a85b9f 75%,#422353 100%);transition:opacity .95s ease;display:grid;place-items:center}
+.screen-wipe::after{content:"♡";font-size:clamp(92px,16vw,210px);font-family:Georgia,serif;color:#fff4e6;text-shadow:0 0 60px #ffe5ef,0 0 16px #e897d8;transform:scale(.5);transition:transform .95s cubic-bezier(.2,.8,.2,1)}
+.screen-wipe.active{opacity:1}.screen-wipe.active::after{transform:scale(1)}
+@media(max-width:720px){
+ .scene{min-height:100dvh}
+ .prompt-title{top:clamp(88px,16.5vh,155px);width:96vw}
+ .prompt-title span{font-size:clamp(27px,7.4vw,45px);letter-spacing:-.055em;padding-left:8px;padding-right:8px}
+ .objects{bottom:clamp(42px,9.5vh,84px);width:max-content;max-width:100vw;gap:0;padding:0;transform:translateX(-50%)}
+ .digicode{width:clamp(182px,53vw,255px);padding:12px;transform:rotateY(-4deg) rotateZ(1deg)}
+ .actor-wrap{width:clamp(152px,44vw,222px);margin-right:-29px;margin-left:0;margin-bottom:-5px}
+ .keys{gap:6px}.key{height:clamp(41px,12.1vw,50px)}
+ .meadow-flowers{opacity:.9}
+ .grass-near{height:8%}
+}
+@media(max-width:380px){
+ .prompt-title{top:15vh}
+ .prompt-title span{font-size:clamp(25px,7.2vw,28px)}
+ .actor-wrap{width:44vw;margin-right:-23px}
+ .digicode{width:53vw;min-width:0;padding:10px}
+ .display{height:49px;margin-bottom:11px}
+ .key{height:43px}
+ .objects{bottom:11vh}
+}
+@media(max-height:650px){
+ .prompt-title{top:6vh}
+ .objects{bottom:4vh;transform:translateX(-50%) scale(.8);transform-origin:bottom center}
+}
+@media(prefers-reduced-motion:reduce){
+ .actor-wrap:not(.reacting),.world-art .cloud-a,.world-art .cloud-b,.wildflower{animation:none}
+ .intro{animation:leaveIntro 3.4s ease both}
+}
